@@ -1,31 +1,13 @@
 import './css/styles.css';
 import debounce from 'lodash.debounce';
 import Notiflix from "notiflix";
-
-//import "./css/fetchCountries.js"
+import fetchCountries from "./css/fetchCountries"
 const DEBOUNCE_DELAY = 300;
 
 const searchBox = document.querySelector("#search-box");
 const countryList = document.querySelector(".country-list");
 const countryInfo = document.querySelector(".country-info");
-
-const fetchCountries = (name) => {
-  
-  const fields = "name.official,capital,population,flags,languages";
-  const url = `https://restcountries.com/v3.1/name/${name}?fields=${fields}`;
-  
-  return fetch(url)
-    .then((response) => {
-      if (!response.ok) {
-        console.log(error)
-        throw new Error("Country not found");
-       
-      }
-      return response.json();
-    })
-}
     
-
 
 searchBox.addEventListener("input", debounce(() => {
     const searchTerm = searchBox.value.trim();
