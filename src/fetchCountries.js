@@ -1,6 +1,6 @@
-export fetchCountries
+export { fetchCountries };
 
- const fetchCountries = (name) => {
+const fetchCountries = async (name) => {
     const fields = "name,capital,population,flags,languages";
     const url = `https://restcountries.com/v3.1/name/${name}?fields=${fields}`;
     
